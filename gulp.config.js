@@ -45,8 +45,8 @@ module.exports = {
                 './node_modules/zone.js/dist/zone.js',
                 './node_modules/reflect-metadata/reflect.js'
             ],
-            angular2: './node_modules/@angular/**/*',
-            rxjs: './node_modules/rxjs/**/*',
+            angular2: './node_modules/@angular/**/*.js',
+            rxjs: './node_modules/rxjs/**/*.js',
             systemJs: './node_modules/systemjs/dist/system.src.js'
         }
     },
