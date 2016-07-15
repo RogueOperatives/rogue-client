@@ -18,7 +18,7 @@ module.exports = {
             ],
             systemSetupScript: './src/system.setup.js',
             app: {
-                everything: ['./src/app/**/*', './src/BoardZ/system.setup.js'],
+                everything: ['./src/app/**/*', './src/system.setup.js'],
                 ts: [
                     './src/app/**/*.ts'
                 ],
