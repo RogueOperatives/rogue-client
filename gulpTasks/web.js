@@ -3,14 +3,17 @@
 
     function RegisterTasks(gulp, config) {
 
-        var cleanCss = require('gulp-clean-css'),
+        var batch = require('gulp-batch'),
+            cleanCss = require('gulp-clean-css'),
             inject = require('gulp-inject'),
             path = require('path'),
             rename = require('gulp-rename'),
             runSequence = require('run-sequence'),
+            server = require('gulp-server-livereload'),
             sourcemaps = require('gulp-sourcemaps'),
             ts = require('gulp-typescript'),
-            tsConfig = ts.createProject(config.ts.config);
+            tsConfig = ts.createProject(config.ts.config),
+            watch = require('gulp-watch');
 
         gulp.task('[private-web]:copy-template', function () {
             var sources = gulp.src(config.source.files.injectables);
@@ -83,6 +86,30 @@
                 done
             );
         });
+
+        gulp.task('[private-web]:start-live-server', ['build-web'], function () {
+            return gulp.src(config.targets.buildFolder)
+                .pipe(server({
+                    livereload: true,
+                    open: true
+                }));
+        });
+
+        gulp.task('watch-web', ['[private-web]:start-live-server'], function () {
+            deltaWatch();
+        });
+
+        function deltaWatch() {
+            return watch(config.source.files.app.everything, batch(function (events, done) {
+                console.log(arguments);
+
+                runSequence(
+                    '[private-web]:copy-system-setup-script',
+                    '[private-web]:copy-app-html',
+                    '[private-web]:build-app-scripts',
+                    done);
+            }));
+        }
     }
 
     module.exports = {
