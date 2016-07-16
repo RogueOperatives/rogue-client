@@ -1,5 +1,8 @@
 .idea
 
+src/app/*.js
+src/app/*.map
+
 # Mac
 .DS_Store
 
@@ -257,7 +260,4 @@ cache
 dist
 .temp
 
-cordova/resources
-electron-build
-electron/www
 typings
