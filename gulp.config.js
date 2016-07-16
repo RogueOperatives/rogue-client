@@ -56,6 +56,7 @@ module.exports = {
     targets: {
         systemMinJs: 'system.min.js',
         appFolder: 'app',
+        buildFolder: './dist/www',
         stylesFolder: 'css',
         minified: {
             js: 'app.js',
