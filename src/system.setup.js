@@ -6,7 +6,13 @@
     var map = {
         'app': 'app', // 'dist',
         '@angular': '@angular',
-        'rxjs': 'rxjs'
+        'rxjs': 'rxjs',
+        'jquery/jquery': 'scripts/jquery.min.js',
+        'jquery-slimscroll/jquery-slimscroll': 'scripts/jquery.slimscroll.min.js',
+        'zone.js/dist/zone': 'scripts/zone.js',
+        'reflect-metadata/Reflect.js': 'scripts/Reflect.js',
+        'bootstrap/js/bootstrap': 'scripts/bootstrap.min.js',
+        'admin-lte/js/app': 'scripts/app.min.js',
     };
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {

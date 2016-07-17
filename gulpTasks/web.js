@@ -33,6 +33,11 @@
                 .pipe(gulp.dest(path.join(config.targets.buildFolder, 'rxjs')));
         });
 
+        gulp.task('[private-web]:copy-ui-frameworks', function () {
+            return gulp.src(config.source.files.uiFrameworkJs)
+                .pipe(gulp.dest(path.join(config.targets.buildFolder, 'scripts/')));
+        });
+
         gulp.task('[private-web]:copy-system-setup-script', function () {
             return gulp.src(config.source.files.systemSetupScript)
                 .pipe(gulp.dest(path.join(config.targets.buildFolder, 'scripts/')));
@@ -75,6 +80,7 @@
                 [
                     '[private-web]:copy-angular2-scripts',
                     '[private-web]:copy-rxjs-scripts',
+                    '[private-web]:copy-ui-frameworks',
                     '[private-web]:copy-system-setup-script',
                     '[private-web]:copy-system',
                     '[private-web]:build-app-scripts',
