@@ -53,9 +53,9 @@ function restoreModule() {
 }
 
 backupModule()
-    /*.then(function () {
-        return System.import('jquery');
-    })*/
+    .then(function () {
+        return System.import('jquery/jquery');
+    })
     .then(function () {
         return restoreModule();
     })
