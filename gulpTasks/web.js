@@ -43,6 +43,11 @@
                 .pipe(gulp.dest(path.join(config.targets.buildFolder, 'css/')));
         });
 
+        gulp.task('[private-web]:copy-ui-frameworks-fonts', function () {
+            return gulp.src(config.source.files.uiFramework.fonts)
+                .pipe(gulp.dest(path.join(config.targets.buildFolder, 'fonts/')));
+        });
+
         gulp.task('[private-web]:copy-system-setup-script', function () {
             return gulp.src(config.source.files.systemSetupScript)
                 .pipe(gulp.dest(path.join(config.targets.buildFolder, 'scripts/')));
@@ -87,6 +92,7 @@
                     '[private-web]:copy-rxjs-scripts',
                     '[private-web]:copy-ui-frameworks-js',
                     '[private-web]:copy-ui-frameworks-css',
+                    '[private-web]:copy-ui-frameworks-fonts',
                     '[private-web]:copy-system-setup-script',
                     '[private-web]:copy-system',
                     '[private-web]:build-app-scripts',

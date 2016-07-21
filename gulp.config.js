@@ -9,6 +9,7 @@ module.exports = {
                 './dist/www/css/bootstrap.min.css',
                 './dist/www/css/AdminLTE.min.css',
                 './dist/www/css/skin-red.min.css',
+                './dist/www/css/font-awesome.min.css',
                 './dist/www/css/app.css',
                 './dist/www/scripts/system.min.js',
                 './dist/www/scripts/system.setup.js',
@@ -55,7 +56,8 @@ module.exports = {
                 css: [
                     './node_modules/admin-lte/bootstrap/css/bootstrap.min.css',
                     './node_modules/admin-lte/dist/css/AdminLTE.min.css',
-                    './node_modules/admin-lte/dist/css/skins/skin-red.min.css'
+                    './node_modules/admin-lte/dist/css/skins/skin-red.min.css',
+                    './node_modules/font-awesome/css/font-awesome.min.css'
                 ],
                 js: [
                     './node_modules/jquery/dist/jquery.min.js',
@@ -65,6 +67,9 @@ module.exports = {
                     './node_modules/reflect-metadata/Reflect.js',
                     './node_modules/bootstrap/dist/js/bootstrap.min.js',
                     './node_modules/admin-lte/dist/js/app.min.js'
+                ],
+                fonts: [
+                    './node_modules/font-awesome/fonts/*.*'
                 ]
             }
         }
