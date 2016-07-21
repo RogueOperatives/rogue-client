@@ -9,8 +9,9 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 import {enableProdMode} from '@angular/core';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
-import {APP_ROUTER_PROVIDERS} from './app.routes';
 import {RogueAppComponent} from './app';
+
+import {APP_ROUTER_PROVIDERS} from './app.routes';
 import {PlatformInformationService} from './services/platformInformationService';
 
 

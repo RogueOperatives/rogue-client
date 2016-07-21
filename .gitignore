@@ -1,7 +1,7 @@
 .idea
 
-src/app/*.js
-src/app/*.map
+src/app/**/*.js
+src/app/**/*.map
 
 # Mac
 .DS_Store

@@ -5,6 +5,8 @@ import {AgentOverviewComponent} from './components/agents/overview';
 import {RogueHeaderComponent} from './components/header/header';
 import {RogueSidebarComponent} from './components/sidebar/sidebar';
 
+import {AgentService} from './services/AgentService';
+
 
 @Component({
     selector: 'rogue-app',
