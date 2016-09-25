@@ -7,22 +7,23 @@ import {PlatformInformationService} from '../services/platformInformationService
     selector: '[back-button]',
     host: {
         '[attr.hidden]': 'isHidden'
-    }
+    },
+    providers: [PlatformInformationService]
 })
 export class BackButtonDirective {
     public isHidden: boolean = true;
 
-    constructor(private _platformInformationService: PlatformInformationService,
-                private _location: Location) {
+    constructor(private platformInformationService: PlatformInformationService,
+                private location: Location) {
         this.setHidden();
     }
 
     private setHidden(): void {
-        this.isHidden = this._platformInformationService.isWeb;
+        this.isHidden = this.platformInformationService.isWeb;
     }
 
     @HostListener('click')
     public onClick() {
-        this._location.back();
+        this.location.back();
     }
 }

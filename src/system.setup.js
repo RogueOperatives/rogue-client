@@ -1,66 +1,46 @@
 /**
- * System configuration for Angular 2.
+ * System configuration for Angular samples
+ * Adjust as necessary for your application needs.
  */
 (function (global) {
+  System.config({
+    paths: {
+        // paths serve as alias
+        'npm:': 'node_modules/'
+    },
     // map tells the System loader where to look for things
-    var map = {
-        'app': 'app', // 'dist',
-        '@angular': '@angular',
+    map: {
+        // our app is within the app folder
+        app: 'app',
+        
+        // angular bundles
+        '@angular/core': '@angular/core/bundles/core.umd.js',
+        '@angular/common': '@angular/common/bundles/common.umd.js',
+        '@angular/compiler': '@angular/compiler/bundles/compiler.umd.js',
+        '@angular/platform-browser': '@angular/platform-browser/bundles/platform-browser.umd.js',
+        '@angular/platform-browser-dynamic': '@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+        '@angular/http': '@angular/http/bundles/http.umd.js',
+        '@angular/router': '@angular/router/bundles/router.umd.js',
+        '@angular/forms': '@angular/forms/bundles/forms.umd.js',
+
+        // other libraries
         'rxjs': 'rxjs',
         'jquery/jquery': 'scripts/jquery.min.js',
         'jquery-slimscroll/jquery-slimscroll': 'scripts/jquery.slimscroll.min.js',
         'zone.js/dist/zone': 'scripts/zone.js',
         'reflect-metadata/Reflect.js': 'scripts/Reflect.js',
         'bootstrap/js/bootstrap': 'scripts/bootstrap.min.js',
-        'admin-lte/js/app': 'scripts/app.min.js',
-    };
+        'admin-lte/js/app': 'scripts/app.min.js'
+    },
     // packages tells the System loader how to load when no filename and/or no extension
-    var packages = {
-        'app': { main: 'main.js', defaultExtension: 'js' },
-        'rxjs': { defaultExtension: 'js' },
-        '@angular/common': { main: 'index.js', defaultExtension: 'js' },
-        '@angular/compiler': { main: 'index.js', defaultExtension: 'js' },
-        '@angular/core': { main: 'index.js', defaultExtension: 'js' },
-        '@angular/platform-browser': { main: 'index.js', defaultExtension: 'js' },
-        '@angular/platform-browser-dynamic': { main: 'index.js', defaultExtension: 'js' },
-        '@angular/router': { main: 'index.js', defaultExtension: 'js' },
-    };
-
-    var config = {
-        map: map,
-        packages: packages
+    packages: {
+        app: {
+            main: './main.js',
+            defaultExtension: 'js'
+        },
+        rxjs: {
+            defaultExtension: 'js'
+        }
     }
-    System.config(config);
+  });
 })(this);
-
-function backupModule() {
-    return new Promise(function (resolve, reject) {
-        if(typeof module !== 'undefined' && module.hasOwnProperty('exports')) {
-            window.module = module;
-            module = undefined;
-        }
-        resolve(true);
-    });
-}
-
-function restoreModule() {
-    return new Promise(function (resolve, reject) {
-        if(window.hasOwnProperty('module')) {
-            module = window.module;
-        }
-        resolve(true);
-    });
-}
-
-backupModule()
-    .then(function () {
-        return System.import('jquery/jquery');
-    })
-    .then(function () {
-        return restoreModule();
-    })
-    .then(function () {
-        return System.import('app/main');
-    })
-    .then(null, console.error.bind(console));
-

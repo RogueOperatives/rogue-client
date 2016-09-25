@@ -5,22 +5,12 @@ import 'jquery-slimscroll/jquery-slimscroll';
 import 'bootstrap/js/bootstrap';
 import 'admin-lte/js/app';
 
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {enableProdMode} from '@angular/core';
-import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
+import { RogueAppModule } from './app.module';
 import {RogueAppComponent} from './app';
 
-import {APP_ROUTER_PROVIDERS} from './app.routes';
 import {PlatformInformationService} from './services/platformInformationService';
 
-
-enableProdMode();
-
-bootstrap(
-    RogueAppComponent,
-    [
-        APP_ROUTER_PROVIDERS,
-        PlatformInformationService,
-        { provide: LocationStrategy, useClass: HashLocationStrategy }
-    ]);
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(RogueAppModule);
