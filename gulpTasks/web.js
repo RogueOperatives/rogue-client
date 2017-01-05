@@ -62,7 +62,7 @@
         gulp.task('[private-web]:build-app-scripts', function () {
             return gulp.src(config.source.files.app.ts)
                 .pipe(sourcemaps.init())
-                .pipe(ts(tsConfig))
+                .pipe(tsConfig())
                 .pipe(sourcemaps.write('.'))
                 .pipe(gulp.dest(path.join(config.targets.buildFolder, config.targets.appFolder)));
         });
