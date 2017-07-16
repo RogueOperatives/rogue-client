@@ -19,7 +19,11 @@ export class AgentOverviewComponent implements OnInit {
     }
 
     ngOnInit() { 
-        this.agents = this.agentService.getAll();
+        this.agentService
+            .getAll()
+            .subscribe(
+                (agents) => this.agents = agents
+            );
     }
 
 }

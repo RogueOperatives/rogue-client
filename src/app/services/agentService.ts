@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 
-import {Agent, Gender} from '../models/agent'
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { RestServiceBase } from "./restServiceBase";
+
+import { Agent } from '../models/agent'
 
 @Injectable()
-export class AgentService {
-    constructor() { }
+export class AgentService extends RestServiceBase {
+    constructor(_http: Http) { 
+        super(_http);
+    }
 
-    public getAll(): Agent[] {
-        return [
-            {
-                FirstName: 'John',
-                LastName: 'Doe',
-                CodeName: 'Skippy',
-                Sex: Gender.Male
-            },
-            {
-                FirstName: 'Jane',
-                LastName: 'Doe',
-                CodeName: 'Xena',
-                Sex: Gender.Female
-            }
-        ];
+    public getAll(): Observable<Agent[]> {
+        return this._http
+                .get(this.buildUrl('units'))
+                .map(response => (<Agent[]>response.json()));
     }
 }
